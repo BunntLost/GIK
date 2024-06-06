@@ -1,0 +1,15 @@
+function(configure_default_target target_name)
+target_link_libraries(${target_name} PUBLIC ${GIK_EXTERNAL_LIBRARIES})
+target_include_directories(${target_name} PUBLIC ${GIK_INCLUDE_DIR})
+endfunction()
+
+function(add_default_library target_name target_files)
+add_library(${target_name} ${target_files})
+configure_default_target(${target_name})
+endfunction()
+
+function(add_default_executable target_name target_files)
+add_executable(${target_name} ${target_files})
+configure_default_target(${target_name})
+target_link_libraries(${target_name} PUBLIC GIK)
+endfunction()

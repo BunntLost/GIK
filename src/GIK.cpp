@@ -1,0 +1,1 @@
+#include <GIK/models/SCARA.hpp>
